@@ -8,7 +8,7 @@ class Node:
     def __str__(self):
         return str(self.data)
 
-class ListaDobleEnlazada():
+class ListaDoblementeEnlazada():
 
     def __init__(self):
         pass
