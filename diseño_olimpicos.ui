@@ -1,0 +1,2312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>786</width>
+    <height>439</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">
+background-color: rgb(135, 206, 235);</string>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="sizeConstraint">
+     <enum>QLayout::SetDefaultConstraint</enum>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>4</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="frame_Superior">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame#frame_Superior{
+	border: 3px solid rgb(135, 206, 235);
+	background-color: rgb(255, 255, 255);
+}
+
+background-color: rgb(255, 255, 255);
+</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_11">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>13</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_icono">
+            <property name="minimumSize">
+             <size>
+              <width>65</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>31</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font:87 14pt&quot;Arial Black&quot;;
+color: rgb(0,0,0);
+background-color: rgb(255, 255, 255);
+</string>
+            </property>
+            <property name="lineWidth">
+             <number>1</number>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>Imagenes/olimpicos.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>138</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_Titulo">
+            <property name="styleSheet">
+             <string notr="true">font:87 14pt&quot;Arial Black&quot;;
+background-color: rgb(255, 255, 255);
+</string>
+            </property>
+            <property name="text">
+             <string>Olimpicos 2025</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>148</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_10">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="btn_Minimizar">
+               <property name="minimumSize">
+                <size>
+                 <width>35</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>35</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+border:0px;
+}
+
+QPushButton:hover{
+border:5px solid rgb(211, 211, 211);
+background-color:white;
+
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>Imagenes/minimizar.png</normaloff>Imagenes/minimizar.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>32</width>
+                 <height>32</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_Restaurar">
+               <property name="minimumSize">
+                <size>
+                 <width>35</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>35</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+border:0px;
+}
+
+QPushButton:hover{
+border:5px solid rgb(211, 211, 211);
+background-color:white;
+
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>Imagenes/restaurar.png</normaloff>Imagenes/restaurar.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>32</width>
+                 <height>32</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_Maximizar">
+               <property name="minimumSize">
+                <size>
+                 <width>35</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>35</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+border:0px;
+}
+
+QPushButton:hover{
+border:5px solid rgb(211, 211, 211);
+background-color:white;
+
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>Imagenes/maximizar.png</normaloff>Imagenes/maximizar.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>32</width>
+                 <height>32</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_Cerrar">
+               <property name="minimumSize">
+                <size>
+                 <width>35</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>35</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+border:0px;
+}
+
+QPushButton:hover{
+border:5px solid rgb(211, 211, 211);
+background-color:white;
+
+}
+</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>Imagenes/cerrar.png</normaloff>Imagenes/cerrar.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>32</width>
+                 <height>32</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_Inferior">
+         <property name="styleSheet">
+          <string notr="true">QFrame#frame_Inferior{
+	border: 4px solid rgb(135, 206, 235);
+	background-color: rgb(255, 255, 255);
+}
+</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>8</number>
+          </property>
+          <property name="topMargin">
+           <number>8</number>
+          </property>
+          <property name="rightMargin">
+           <number>8</number>
+          </property>
+          <property name="bottomMargin">
+           <number>8</number>
+          </property>
+          <item>
+           <widget class="QStackedWidget" name="user_stackedWidget_main">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="currentIndex">
+             <number>1</number>
+            </property>
+            <widget class="QWidget" name="page_usuario">
+             <layout class="QGridLayout" name="gridLayout_5">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <property name="horizontalSpacing">
+               <number>0</number>
+              </property>
+              <property name="verticalSpacing">
+               <number>4</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QFrame" name="usuario_frame_inferior_anuncio">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_3">
+                 <item row="0" column="0">
+                  <widget class="QFrame" name="usuario_frame_inferior_anuncio_label1">
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout">
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="usuario_label_modo">
+                      <property name="minimumSize">
+                       <size>
+                        <width>125</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>125</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">border: 2px solid black;
+</string>
+                      </property>
+                      <property name="text">
+                       <string>Modo Usuario</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QFrame" name="usuario_frame_inferior_anuncio_label2">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_2">
+                    <item>
+                     <widget class="QLabel" name="usuario_label_anuncio">
+                      <property name="font">
+                       <font>
+                        <pointsize>20</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>¡ Puedes buscar lo que necesites con filtros !</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QFrame" name="frame_2">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_2">
+                 <property name="leftMargin">
+                  <number>15</number>
+                 </property>
+                 <item row="0" column="0" colspan="3">
+                  <widget class="Line" name="line">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0" rowspan="2">
+                  <widget class="QLabel" name="usuario_label_buscarPor">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Buscar por:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QComboBox" name="usuario_combobox_buscarPor">
+                   <property name="minimumSize">
+                    <size>
+                     <width>100</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="editable">
+                    <bool>false</bool>
+                   </property>
+                   <property name="sizeAdjustPolicy">
+                    <enum>QComboBox::AdjustToContents</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="2">
+                  <spacer name="horizontalSpacer_4">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>556</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="3" column="0" colspan="3">
+                  <widget class="Line" name="line_2">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QStackedWidget" name="user_stackedWidged_secundary">
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="currentIndex">
+                 <number>1</number>
+                </property>
+                <widget class="QWidget" name="user_stacketWidget_page_pais">
+                 <layout class="QGridLayout" name="gridLayout_4">
+                  <item row="1" column="0" colspan="3">
+                   <widget class="Line" name="line_3">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <spacer name="horizontalSpacer_5">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>511</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="2" column="0" colspan="3">
+                   <widget class="QTableWidget" name="user_stacketWidget_pagePais_table">
+                    <property name="styleSheet">
+                     <string notr="true">QTableWidget{
+background-color: rgb(255, 255, 255);
+color: rgb(0,0,0);
+gridline-color: rgb(135, 206, 235);
+font-size: 16pt;
+color: #000000;
+}
+QHeaderView::section{
+background-color: rgb(135, 206, 235);
+border: 1px solid rgb(0,0,0);
+font-size: 15pt;
+}
+QTableWidget QTableCornerButton::section{
+background-color: rgb(0,0,0);
+border: 1px solid rgb(135, 206, 235);
+}
+QTableWidget::item{
+text-align: AlignCenter;
+}</string>
+                    </property>
+                    <column>
+                     <property name="text">
+                      <string>NOMBRE</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>REPRESENTANTES</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>DEPORTES</string>
+                     </property>
+                    </column>
+                   </widget>
+                  </item>
+                  <item row="3" column="1" colspan="2">
+                   <widget class="QFrame" name="frame_3">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_4">
+                     <item>
+                      <spacer name="horizontalSpacer_6">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>241</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="user_stacketWidget_pagePais_btnBuscar">
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+font: 75 12pt &quot;Arial&quot;;
+color: black;
+background-color:rgb(193, 193, 193);
+border:1px solid black;
+}
+
+QPushButton:hover{
+background-color:white;
+font: 75 12pt &quot;Arial&quot;;
+}
+
+</string>
+                       </property>
+                       <property name="text">
+                        <string>Buscar</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_7">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>241</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="user_stacketWidget_label_pagePais_pais">
+                    <property name="font">
+                     <font>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Pais:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="user_stacketWidget_pagePais_lineEdit_pais">
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 11pt;</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="user_stacketWidget_page_participante">
+                 <layout class="QGridLayout" name="gridLayout_7">
+                  <item row="0" column="0">
+                   <widget class="QFrame" name="frame_6">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_3">
+                     <property name="spacing">
+                      <number>10</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <widget class="QLabel" name="user_stacketWidget_label_pageParticipante_nombre">
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Nombre:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="user_stacketWidget_pageParticipante_lineEdit_nombre">
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>200</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font-size: 11pt;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="user_stacketWidget_label_pageParticipante_pais">
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Nacionalidad:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="user_stacketWidget_pageParticipante_lineEdit_pais">
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>200</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font-size: 11pt;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_13">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>156</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="Line" name="line_5">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QTableWidget" name="user_stacketWidget_pageParticipante_table">
+                    <property name="styleSheet">
+                     <string notr="true">QTableWidget{
+background-color: rgb(255, 255, 255);
+color: rgb(0,0,0);
+gridline-color: rgb(135, 206, 235);
+font-size: 16pt;
+color: #000000;
+}
+QHeaderView::section{
+background-color: rgb(135, 206, 235);
+border: 1px solid rgb(0,0,0);
+font-size: 15pt;
+}
+QTableWidget QTableCornerButton::section{
+background-color: rgb(0,0,0);
+border: 1px solid rgb(135, 206, 235);
+}
+QTableWidget::item{
+text-align: AlignCenter;
+}</string>
+                    </property>
+                    <column>
+                     <property name="text">
+                      <string>NOMBRE</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>PAIS</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>GENERO</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>EDAD</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>DEPORTE</string>
+                     </property>
+                    </column>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QFrame" name="frame_4">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_5">
+                     <item>
+                      <spacer name="horizontalSpacer_8">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>241</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="user_stacketWidget_pageParticipante_btnBuscar">
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+font: 75 12pt &quot;Arial&quot;;
+color: black;
+background-color:rgb(193, 193, 193);
+border:1px solid black;
+}
+
+QPushButton:hover{
+background-color:white;
+font: 75 12pt &quot;Arial&quot;;
+}
+
+</string>
+                       </property>
+                       <property name="text">
+                        <string>Buscar</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_9">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>241</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="user_stacketWidget_page_deporte">
+                 <layout class="QGridLayout" name="gridLayout_6">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="user_stacketWidget_label_pageDeporte_deporte">
+                    <property name="font">
+                     <font>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Deporte:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="user_stacketWidget_pageDeporte_lineEdit_deporte">
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 11pt;</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <spacer name="horizontalSpacer_12">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>483</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="1" column="0" colspan="3">
+                   <widget class="Line" name="line_4">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0" colspan="3">
+                   <widget class="QTableWidget" name="user_stacketWidget_pageDeporte_table">
+                    <property name="styleSheet">
+                     <string notr="true">QTableWidget{
+background-color: rgb(255, 255, 255);
+color: rgb(0,0,0);
+gridline-color: rgb(135, 206, 235);
+font-size: 16pt;
+color: #000000;
+}
+QHeaderView::section{
+background-color: rgb(135, 206, 235);
+border: 1px solid rgb(0,0,0);
+font-size: 15pt;
+}
+QTableWidget QTableCornerButton::section{
+background-color: rgb(0,0,0);
+border: 1px solid rgb(135, 206, 235);
+}
+QTableWidget::item{
+text-align: AlignCenter;
+}</string>
+                    </property>
+                    <column>
+                     <property name="text">
+                      <string>NOMBRE</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>CATEGORIAS</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>LLAVES</string>
+                     </property>
+                    </column>
+                   </widget>
+                  </item>
+                  <item row="3" column="0" colspan="3">
+                   <widget class="QFrame" name="frame_5">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_6">
+                     <item>
+                      <spacer name="horizontalSpacer_10">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>241</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="user_stacketWidget_pageDeporte_btnBuscar">
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+font: 75 12pt &quot;Arial&quot;;
+color: black;
+background-color:rgb(193, 193, 193);
+border:1px solid black;
+}
+
+QPushButton:hover{
+background-color:white;
+font: 75 12pt &quot;Arial&quot;;
+}
+
+</string>
+                       </property>
+                       <property name="text">
+                        <string>Buscar</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_11">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>241</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="page_administrador">
+             <layout class="QGridLayout" name="gridLayout_11">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <property name="horizontalSpacing">
+               <number>0</number>
+              </property>
+              <property name="verticalSpacing">
+               <number>4</number>
+              </property>
+              <item row="1" column="0">
+               <widget class="QFrame" name="frame_7">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_10">
+                 <property name="leftMargin">
+                  <number>15</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item row="0" column="0" colspan="3">
+                  <widget class="Line" name="line_6">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0" rowspan="2">
+                  <widget class="QLabel" name="admin_label_filtrarPor">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Filtrar por:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QComboBox" name="admin_combobox_filtrarPor">
+                   <property name="minimumSize">
+                    <size>
+                     <width>100</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="editable">
+                    <bool>false</bool>
+                   </property>
+                   <property name="sizeAdjustPolicy">
+                    <enum>QComboBox::AdjustToContents</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="2">
+                  <spacer name="horizontalSpacer_14">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>556</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="3" column="0" colspan="3">
+                  <widget class="Line" name="line_7">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QStackedWidget" name="admin_stackedWidged_secundary">
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="currentIndex">
+                 <number>0</number>
+                </property>
+                <widget class="QWidget" name="admin_stacketWidget_page_pais">
+                 <layout class="QGridLayout" name="gridLayout_14">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="admin_stacketWidget_label_pagePais_pais">
+                    <property name="minimumSize">
+                     <size>
+                      <width>40</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>40</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Pais:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="admin_stacketWidget_pagePais_lineEdit_pais">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 11pt;</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="admin_stacketWidget_label_pagePais_numeroParticipantes">
+                    <property name="minimumSize">
+                     <size>
+                      <width>120</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>120</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string># Participantes:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QLineEdit" name="admin_stacketWidget_pagePais_lineEdit_numeroParticipantes">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 11pt;</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QLabel" name="admin_stacketWidget_label_pagePais_deportes">
+                    <property name="minimumSize">
+                     <size>
+                      <width>80</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>80</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Deportes:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="5">
+                   <widget class="QLineEdit" name="admin_stacketWidget_pagePais_lineEdit_deportes">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 11pt;</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="readOnly">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0" colspan="6">
+                   <widget class="Line" name="line_8">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0" colspan="6">
+                   <widget class="QTableWidget" name="admin_stacketWidget_pagePais_table">
+                    <property name="styleSheet">
+                     <string notr="true">QTableWidget{
+background-color: rgb(255, 255, 255);
+color: rgb(0,0,0);
+gridline-color: rgb(135, 206, 235);
+font-size: 16pt;
+color: #000000;
+}
+QHeaderView::section{
+background-color: rgb(135, 206, 235);
+border: 1px solid rgb(0,0,0);
+font-size: 15pt;
+}
+QTableWidget QTableCornerButton::section{
+background-color: rgb(0,0,0);
+border: 1px solid rgb(135, 206, 235);
+}
+QTableWidget::item{
+text-align: AlignCenter;
+}</string>
+                    </property>
+                    <property name="editTriggers">
+                     <set>QAbstractItemView::NoEditTriggers</set>
+                    </property>
+                    <column>
+                     <property name="text">
+                      <string>NOMBRE</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>REPRESENTANTES</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>DEPORTES</string>
+                     </property>
+                    </column>
+                   </widget>
+                  </item>
+                  <item row="3" column="0" colspan="6">
+                   <widget class="QFrame" name="frame_8">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_7">
+                     <item>
+                      <spacer name="horizontalSpacer_18">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>252</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="admin_stacketWidget_pagePais_btnGuardar">
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+font: 75 12pt &quot;Arial&quot;;
+color: black;
+background-color:rgb(193, 193, 193);
+border:1px solid black;
+}
+
+QPushButton:hover{
+background-color:white;
+font: 75 12pt &quot;Arial&quot;;
+}
+
+</string>
+                       </property>
+                       <property name="text">
+                        <string>Guardar</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_19">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>13</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="admin_stacketWidget_pagePais_btnEliminar">
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+font: 75 12pt &quot;Arial&quot;;
+color: black;
+background-color:rgb(193, 193, 193);
+border:1px solid black;
+}
+
+QPushButton:hover{
+background-color:white;
+font: 75 12pt &quot;Arial&quot;;
+}
+
+</string>
+                       </property>
+                       <property name="text">
+                        <string>Eliminar</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_20">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>17</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="admin_stacketWidget_pagePais_btnBuscar">
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+font: 75 12pt &quot;Arial&quot;;
+color: black;
+background-color:rgb(193, 193, 193);
+border:1px solid black;
+}
+
+QPushButton:hover{
+background-color:white;
+font: 75 12pt &quot;Arial&quot;;
+}
+
+</string>
+                       </property>
+                       <property name="text">
+                        <string>Buscar</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_17">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>252</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="admin_stacketWidget_page_participante">
+                 <layout class="QGridLayout" name="gridLayout_12">
+                  <item row="0" column="0" rowspan="2" colspan="2">
+                   <widget class="QFrame" name="frame_9">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_8">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>9</number>
+                     </property>
+                     <item>
+                      <widget class="QLabel" name="admin_stacketWidget_label_pageParticipante_nombre">
+                       <property name="minimumSize">
+                        <size>
+                         <width>65</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>65</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Nombre:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="admin_stacketWidget_pageParticipante_lineEdit_nombre">
+                       <property name="minimumSize">
+                        <size>
+                         <width>80</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font-size: 11pt;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="admin_stacketWidget_label_pageParticipante_pais">
+                       <property name="maximumSize">
+                        <size>
+                         <width>35</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Pais:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="admin_stacketWidget_pageParticipante_lineEdit_pais">
+                       <property name="minimumSize">
+                        <size>
+                         <width>80</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font-size: 11pt;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="admin_stacketWidget_label_pageParticipante_genero">
+                       <property name="maximumSize">
+                        <size>
+                         <width>60</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Género:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QComboBox" name="admin_stackedWidget_combobox_pageParticipante_genero">
+                       <property name="minimumSize">
+                        <size>
+                         <width>100</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="editable">
+                        <bool>false</bool>
+                       </property>
+                       <property name="sizeAdjustPolicy">
+                        <enum>QComboBox::AdjustToContents</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="admin_stacketWidget_label_pageParticipante_edad">
+                       <property name="maximumSize">
+                        <size>
+                         <width>40</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Edad:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="admin_stacketWidget_pageParticipante_lineEdit_edad">
+                       <property name="minimumSize">
+                        <size>
+                         <width>80</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font-size: 11pt;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="admin_stacketWidget_label_pageParticipante_deporte">
+                       <property name="minimumSize">
+                        <size>
+                         <width>70</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>70</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Deporte:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="admin_stacketWidget_pageParticipante_lineEdit_deporte">
+                       <property name="minimumSize">
+                        <size>
+                         <width>80</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font-size: 11pt;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="Line" name="line_9">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QTableWidget" name="admin_stacketWidget_pageParticipante_table">
+                    <property name="styleSheet">
+                     <string notr="true">QTableWidget{
+background-color: rgb(255, 255, 255);
+color: rgb(0,0,0);
+gridline-color: rgb(135, 206, 235);
+font-size: 16pt;
+color: #000000;
+}
+QHeaderView::section{
+background-color: rgb(135, 206, 235);
+border: 1px solid rgb(0,0,0);
+font-size: 15pt;
+}
+QTableWidget QTableCornerButton::section{
+background-color: rgb(0,0,0);
+border: 1px solid rgb(135, 206, 235);
+}
+QTableWidget::item{
+text-align: AlignCenter;
+}</string>
+                    </property>
+                    <column>
+                     <property name="text">
+                      <string>NOMBRE</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>PAIS</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>GENERO</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>EDAD</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>DEPORTE</string>
+                     </property>
+                    </column>
+                   </widget>
+                  </item>
+                  <item row="3" column="0" colspan="2">
+                   <widget class="QFrame" name="frame_12">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_9">
+                     <item>
+                      <spacer name="horizontalSpacer_26">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>6</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="admin_stacketWidget_pageParticipante_btnBuscar">
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+font: 75 12pt &quot;Arial&quot;;
+color: black;
+background-color:rgb(193, 193, 193);
+border:1px solid black;
+}
+
+QPushButton:hover{
+background-color:white;
+font: 75 12pt &quot;Arial&quot;;
+}
+
+</string>
+                       </property>
+                       <property name="text">
+                        <string>Buscar</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_24">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="admin_stacketWidget_pageParticipante_btnGuardar">
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+font: 75 12pt &quot;Arial&quot;;
+color: black;
+background-color:rgb(193, 193, 193);
+border:1px solid black;
+}
+
+QPushButton:hover{
+background-color:white;
+font: 75 12pt &quot;Arial&quot;;
+}
+
+</string>
+                       </property>
+                       <property name="text">
+                        <string>Guardar</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_25">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="admin_stacketWidget_pageParticipante_btnEliminar">
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+font: 75 12pt &quot;Arial&quot;;
+color: black;
+background-color:rgb(193, 193, 193);
+border:1px solid black;
+}
+
+QPushButton:hover{
+background-color:white;
+font: 75 12pt &quot;Arial&quot;;
+}
+
+</string>
+                       </property>
+                       <property name="text">
+                        <string>Eliminar</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_27">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>7</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="admin_stacketWidget_page_deporte">
+                 <layout class="QGridLayout" name="gridLayout_13">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="admin_stacketWidget_label_pageDeporte_deporte">
+                    <property name="font">
+                     <font>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Deporte:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="admin_stacketWidget_pageDeporte_lineEdit_deporte">
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 11pt;</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <spacer name="horizontalSpacer_21">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>483</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="1" column="0" colspan="3">
+                   <widget class="Line" name="line_10">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0" colspan="3">
+                   <widget class="QTableWidget" name="admin_stacketWidget_pageDeporte_table">
+                    <property name="styleSheet">
+                     <string notr="true">QTableWidget{
+background-color: rgb(255, 255, 255);
+color: rgb(0,0,0);
+gridline-color: rgb(135, 206, 235);
+font-size: 16pt;
+color: #000000;
+}
+QHeaderView::section{
+background-color: rgb(135, 206, 235);
+border: 1px solid rgb(0,0,0);
+font-size: 15pt;
+}
+QTableWidget QTableCornerButton::section{
+background-color: rgb(0,0,0);
+border: 1px solid rgb(135, 206, 235);
+}
+QTableWidget::item{
+text-align: AlignCenter;
+}</string>
+                    </property>
+                    <column>
+                     <property name="text">
+                      <string>NOMBRE</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>CATEGORIAS</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>LLAVES</string>
+                     </property>
+                    </column>
+                   </widget>
+                  </item>
+                  <item row="3" column="0" colspan="3">
+                   <widget class="QFrame" name="frame_11">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_10">
+                     <item>
+                      <spacer name="horizontalSpacer_22">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>241</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="admin_stacketWidget_pageDeporte_btnBuscar">
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+font: 75 12pt &quot;Arial&quot;;
+color: black;
+background-color:rgb(193, 193, 193);
+border:1px solid black;
+}
+
+QPushButton:hover{
+background-color:white;
+font: 75 12pt &quot;Arial&quot;;
+}
+
+</string>
+                       </property>
+                       <property name="text">
+                        <string>Buscar</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_23">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>241</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QFrame" name="admin_frame_inferior_anuncio">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_8">
+                 <item row="0" column="0">
+                  <widget class="QFrame" name="admin_frame_inferior_anuncio_label1">
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_9">
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="admin_label_modo">
+                      <property name="minimumSize">
+                       <size>
+                        <width>115</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>115</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">border: 2px solid black;
+</string>
+                      </property>
+                      <property name="text">
+                       <string>Modo Admin</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QFrame" name="admin_frame_inferior_anuncio_label2">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_4">
+                    <item>
+                     <widget class="QLabel" name="admin_label_anuncio">
+                      <property name="font">
+                       <font>
+                        <pointsize>20</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>¡ Puedes modificar lo que necesites con filtros !</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>0</width>
+     <height>0</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="nativeMenuBar">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="maximumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(85, 85, 255);</string>
+   </property>
+   <property name="sizeGripEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
