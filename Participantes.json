@@ -29,10 +29,10 @@
   },
   "Daniela": {
     "Nombre": "Daniela",
-    "Pais": "Polonia",
-    "Deporte": "Tiro de arco",
-    "Edad": "23",
-    "Genero": "Masculino"
+    "Pais": "Mexico",
+    "Deporte": "Tiro con arco",
+    "Edad": "25",
+    "Genero": "Femenino"
   },
   "Pablo": {
     "Nombre": "Pablo",
@@ -54,5 +54,26 @@
     "Deporte": "tenis",
     "Edad": "30",
     "Genero": "Masculino"
+  },
+  "Many": {
+    "Nombre": "Many",
+    "Pais": "Eslovaquia",
+    "Deporte": "tenis",
+    "Edad": "30",
+    "Genero": "Masculino"
+  },
+  "laura": {
+    "Nombre": "laura",
+    "Pais": "",
+    "Deporte": "",
+    "Edad": "",
+    "Genero": "Masculino"
+  },
+  "Laura": {
+    "Nombre": "Laura",
+    "Pais": "Inglaterra",
+    "Deporte": "Tiro con arco",
+    "Edad": "23",
+    "Genero": "Femenino"
   }
 }
