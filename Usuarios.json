@@ -1,0 +1,20 @@
+{
+  "Juan Lopez": {
+    "Identificador": 1,
+    "Nombre": "Juan Lopez",
+    "Contraseña": "password",
+    "Admin": true
+  },
+  "Bruce Miller": {
+    "Identificador": 2,
+    "Nombre": "Bruce Miller",
+    "Contraseña": "password7",
+    "Admin": false
+  },
+  "Luis": {
+    "Identificador": 3,
+    "Nombre": "Luis",
+    "Contraseña": "123",
+    "Admin": true
+  }
+}

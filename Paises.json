@@ -1,0 +1,39 @@
+{
+  "Colombia": {
+    "Numero de participantes": 5,
+    "Deportes": [
+      "Ciclismo",
+      "Futbol",
+      "Levantamiento Pesas"
+    ]
+  },
+  "Alemania": {
+    "Numero de participantes": 20,
+    "Deportes": [
+      "Ciclismo",
+      "Futbol",
+      "Levantamiento Pesas",
+      "Ciclismo",
+      "Marcha",
+      "Tiro con arco"
+    ]
+  },
+  "Uruguay": {
+    "Numero de participantes": "13",
+    "Deportes": [
+      "Atletismo"
+    ]
+  },
+  "f": {
+    "Numero de participantes": "",
+    "Deportes": ""
+  },
+  "Brazil": {
+    "Numero de participantes": "60",
+    "Deportes": [
+      "Futbol",
+      "Basket",
+      "Tenis"
+    ]
+  }
+}
