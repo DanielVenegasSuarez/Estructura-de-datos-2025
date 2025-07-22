@@ -1,5 +1,4 @@
 from Json import leerPaises,escribirPaises
-from Hash import *
 class Paises:
     def __init__(self):
         self.nombre = None
