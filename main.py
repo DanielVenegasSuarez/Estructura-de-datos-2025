@@ -1,3 +1,5 @@
+import random
+from collections import defaultdict
 import sys
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
@@ -7,19 +9,63 @@ from Paises import Paises
 from Lista_Doblemente_Enlazada import *
 import Diccionario_Participantes as Participantes
 import Backend_Sesion as backend_sesion
+
+class MatchupGenerator:
+    @staticmethod
+    def generar_emparejamientos():
+        participantes = Participantes.leerParticiapantes()
+        
+        categories = defaultdict(list)
+        
+        for nombre, datos in participantes.items():
+            deporte = datos["Deporte"]
+            genero = datos["Genero"]
+            
+            key = (deporte, genero)
+            categories[key].append(nombre)
+        
+        emparejamientos = []
+        for category, athletes in categories.items():
+            if len(athletes) < 2:
+                continue  
+                
+            random.shuffle(athletes)
+            
+            for i in range(0, len(athletes), 2):
+                if i+1 < len(athletes):
+                    emparejamientos.append({
+                        'category': f"{category[0]} ({category[1]})",
+                        'athlete1': athletes[i],
+                        'athlete2': athletes[i+1]
+                    })
+        
+        return emparejamientos
+
 class MiApp(QObject):
     def __init__(self):
         
         super().__init__()
         loader = QUiLoader()
-        file = QFile("diseño_olimpicos.ui")
+        file = QFile("diseno_olimpicos.ui")
         file.open(QFile.ReadOnly)
         self.ui_Main = loader.load(file)
         file.close()
-        file2 = QFile("diseño_inicioSesion.ui")
+        file2 = QFile("diseno_inicioSesion.ui")
         file2.open(QFile.ReadOnly)
         self.ui_inicioSesion = loader.load(file2)
         file2.close()
+        file3 = QFile("dialog_emparejamientos.ui")
+        file3 = QFile("dialog_emparejamientos.ui")
+        if not file3.open(QFile.ReadOnly):
+            print("Error: Could not open dialog_emparejamientos.ui")
+            return
+        self.ui_matchups = loader.load(file3, None)  # Add None as parent parameter
+        file3.close()
+        
+        if not hasattr(self, 'ui_matchups'):
+            print("Error: Failed to load matchups dialog UI")
+    
+
 
         # Crear una lista doblemente enlazada (en memoria)
         self.lista_paises = ListaDoblementeEnlazada()
@@ -100,8 +146,51 @@ class MiApp(QObject):
                 QMessageBox.warning(None, "Error", mensaje)
         else:
             QMessageBox.warning(None, "Error", mensaje)
-    
 
+
+    def generar_emparejamientos(self):
+        try:
+            matchups = MatchupGenerator.generar_emparejamientos()
+            
+            if not matchups:
+                QMessageBox.information(self.ui_Main, "Información", 
+                                    "No hay suficientes atletas para generar emparejamientos.")
+                return
+            
+            print(f"Generated {len(matchups)} matchups")
+            
+            if not hasattr(self, 'ui_matchups'):
+                print("Error: Matchups UI not loaded")
+                return
+                
+            table = self.ui_matchups.findChild(QTableWidget, "table_emparejamientos")
+            btn_close = self.ui_matchups.findChild(QPushButton, "btn_cerrar_emparejamientos")
+            
+            if not table:
+                print("Error: Could not find table_emparejamientos")
+                return
+            if not btn_close:
+                print("Error: Could not find btn_cerrar_emparejamientos")
+                return
+        
+            table.setRowCount(0)  
+            table.setRowCount(len(matchups))
+            table.setHorizontalHeaderLabels(["Deporte (Género)", "Atleta 1", "Atleta 2"])
+            
+            for row, matchup in enumerate(matchups):
+                table.setItem(row, 0, QTableWidgetItem(matchup['category']))
+                table.setItem(row, 1, QTableWidgetItem(matchup['athlete1']))
+                table.setItem(row, 2, QTableWidgetItem(matchup['athlete2']))
+            
+            table.resizeColumnsToContents()
+            
+            btn_close.clicked.connect(self.ui_matchups.close)
+            
+            self.ui_matchups.exec()
+            
+        except Exception as e:
+            print(f"Error in generar_emparejamientos: {str(e)}")
+            QMessageBox.critical(self.ui_Main, "Error", f"Ocurrió un error: {str(e)}")
 
     def carga_Interfaz_Usuario(self):
         #Configura el comboBox FiltrarPor
@@ -135,6 +224,28 @@ class MiApp(QObject):
             self.ui_Main.user_stackedWidged_secundary.setCurrentWidget(self.ui_Main.user_stacketWidget_page_deporte)
         
     def carga_Interfaz_Admin(self):
+        # Add matchup generation button
+        self.ui_Main.admin_btn_generarEmparejamientos = QPushButton("Generar Emparejamientos")
+        self.ui_Main.admin_btn_generarEmparejamientos.setStyleSheet("""
+            QPushButton{
+                font: 75 12pt "Arial";
+                color: black;
+                background-color:rgb(193, 193, 193);
+                border:1px solid black;
+            }
+            QPushButton:hover{
+                background-color:white;
+                font: 75 12pt "Arial";
+            }
+        """)
+        self.ui_Main.admin_btn_generarEmparejamientos.clicked.connect(self.generar_emparejamientos)
+        
+        btn_emparejamientos = self.ui_Main.findChild(QPushButton, "admin_btn_generarEmparejamientos")
+        if btn_emparejamientos:
+            btn_emparejamientos.clicked.connect(self.generar_emparejamientos)
+            print("Matchups button connected successfully")
+        else:
+            print("Error: Could not find admin_btn_generarEmparejamientos")
         #Configura el comboBox FiltrarPor
         self.ui_Main.admin_combobox_filtrarPor.addItems(["Pais","Atleta","Deporte"])
         # Conectar el evento de cambio de selección con la función que lo maneja
