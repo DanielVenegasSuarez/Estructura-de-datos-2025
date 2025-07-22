@@ -464,6 +464,9 @@ background-color:white;
                    <property name="text">
                     <string/>
                    </property>
+                   <property name="echoMode">
+                    <enum>QLineEdit::Password</enum>
+                   </property>
                   </widget>
                  </item>
                 </layout>
@@ -532,7 +535,6 @@ font: 75 12pt &quot;Arial&quot;;
                       <property name="font">
                        <font>
                         <pointsize>12</pointsize>
-                        <weight>50</weight>
                         <bold>false</bold>
                         <underline>true</underline>
                        </font>
