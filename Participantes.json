@@ -54,5 +54,12 @@
     "Deporte": "tenis",
     "Edad": "30",
     "Genero": "Masculino"
+  },
+  "Many": {
+    "Nombre": "Many",
+    "Pais": "Eslovaquia",
+    "Deporte": "tenis",
+    "Edad": "30",
+    "Genero": "Masculino"
   }
 }
