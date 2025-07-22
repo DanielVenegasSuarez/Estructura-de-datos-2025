@@ -50,4 +50,17 @@ def mostrar_participante(nombre_participante, pais):
             return "El participante existe, pero no pertenece al país especificado."
     else:
         return "El participante no existe en la base de datos."
-
+    
+def buscar_participante(nombre, pais = None):
+        participantes = leerParticiapantes().items()
+        resultados = []
+        resultados_pais = []
+        for participante, info in participantes:
+            if nombre in participante:
+                datos = [participante, info["Pais"], info["Genero"], info["Edad"], info["Deporte"]]
+                resultados.append(datos)
+                if pais and info["Pais"] == pais: resultados_pais.append(datos)
+        if pais:
+            if resultados_pais: return resultados_pais
+            return resultados
+        return resultados

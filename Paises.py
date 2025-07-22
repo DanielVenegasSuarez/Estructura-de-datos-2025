@@ -53,6 +53,7 @@ class Paises:
             return True
         else:
             return False
+        
     def mostrar_pais(self, nombre_pais):
         paises = leerPaises()
         if nombre_pais in paises:
@@ -61,4 +62,11 @@ class Paises:
             return info
         else:
             return "El país no existe en la base de datos."
-
+    
+    def buscar_pais(self, nombre_pais):
+        paises = leerPaises().items()
+        resultados = []
+        for pais, info in paises:
+            if nombre_pais in pais:
+                resultados.append([pais, info['Numero de participantes'], ', '.join(info['Deportes'])])
+        return resultados
