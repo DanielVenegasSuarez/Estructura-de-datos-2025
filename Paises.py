@@ -10,8 +10,8 @@ class Paises:
 
     def setGeneral(self, nom, numParticipantes, deport):
         self.nombre = nom
-        self.contrasenna = numParticipantes
-        self.admin = deport
+        self.numeroParticipantes = numParticipantes
+        self.deportes = deport
 
     def get_nombre(self):
         return self.nombre
@@ -30,11 +30,10 @@ class Paises:
         )
         return info
 
-    def guardar_paises(self,nom,depor):
+    def guardar_paises(self,nom,numParticipantes,depor):
         paises = leerPaises()
         paises[nom] = {
-            "Codigo del Pais": "",
-            "Numero de participantes": 0,
+            "Numero de participantes": numParticipantes,
             "Deportes": depor
         }
         escribirPaises(paises)
@@ -49,8 +48,17 @@ class Paises:
     def eliminarDeBase(self,pais):
         paises = leerPaises()
         if pais in paises:
-            paises[pais].pop()
+            del paises[pais]
             escribirPaises(paises)
             return True
         else:
             return False
+    def mostrar_pais(self, nombre_pais):
+        paises = leerPaises()
+        if nombre_pais in paises:
+            datos = paises[nombre_pais]
+            info = [nombre_pais,datos['Numero de participantes'],', '.join(datos['Deportes'])]
+            return info
+        else:
+            return "El país no existe en la base de datos."
+
