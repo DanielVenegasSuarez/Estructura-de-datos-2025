@@ -1,47 +1,12 @@
-import random
-from collections import defaultdict
 import sys
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6.QtUiTools import *
 from Usuarios import *
 from Paises import Paises
-from Deportues import Deportes
 from Lista_Doblemente_Enlazada import *
 import Diccionario_Participantes as Participantes
 import Backend_Sesion as backend_sesion
-
-class MatchupGenerator:
-    @staticmethod
-    def generar_emparejamientos():
-        participantes = Participantes.leerParticiapantes()
-        
-        categories = defaultdict(list)
-        
-        for nombre, datos in participantes.items():
-            deporte = datos["Deporte"]
-            genero = datos["Genero"]
-            
-            key = (deporte, genero)
-            categories[key].append(nombre)
-        
-        emparejamientos = []
-        for category, athletes in categories.items():
-            if len(athletes) < 2:
-                continue  
-                
-            random.shuffle(athletes)
-            
-            for i in range(0, len(athletes), 2):
-                if i+1 < len(athletes):
-                    emparejamientos.append({
-                        'category': f"{category[0]} ({category[1]})",
-                        'athlete1': athletes[i],
-                        'athlete2': athletes[i+1]
-                    })
-        
-        return emparejamientos
-
 class MiApp(QObject):
     def __init__(self):
         
@@ -55,21 +20,11 @@ class MiApp(QObject):
         file2.open(QFile.ReadOnly)
         self.ui_inicioSesion = loader.load(file2)
         file2.close()
-        file3 = QFile("dialog_emparejamientos.ui")
-        file3.open(QFile.ReadOnly)
-        self.ui_matchups = loader.load(file3, None)  # Add None as parent parameter
-        file3.close()
-        
-        if not hasattr(self, 'ui_matchups'):
-            print("Error: Failed to load matchups dialog UI")
-    
-
 
         # Crear una lista doblemente enlazada (en memoria)
         self.lista_paises = ListaDoblementeEnlazada()
-        #Configura paises y usuarios y deportes
+        #Configura paises y usuarios
         self.objPais = Paises.Paises()
-        self.objDeporte = Deportes()
         self.objUsuario = Usuario()
 
         # Configurar ventanas sin bordes
@@ -145,51 +100,8 @@ class MiApp(QObject):
                 QMessageBox.warning(None, "Error", mensaje)
         else:
             QMessageBox.warning(None, "Error", mensaje)
+    
 
-
-    def generar_emparejamientos(self):
-        try:
-            matchups = MatchupGenerator.generar_emparejamientos()
-            
-            if not matchups:
-                QMessageBox.information(self.ui_Main, "Información", 
-                                    "No hay suficientes atletas para generar emparejamientos.")
-                return
-            
-            print(f"Generated {len(matchups)} matchups")
-            
-            if not hasattr(self, 'ui_matchups'):
-                print("Error: Matchups UI not loaded")
-                return
-                
-            table = self.ui_matchups.findChild(QTableWidget, "table_emparejamientos")
-            btn_close = self.ui_matchups.findChild(QPushButton, "btn_cerrar_emparejamientos")
-            
-            if not table:
-                print("Error: Could not find table_emparejamientos")
-                return
-            if not btn_close:
-                print("Error: Could not find btn_cerrar_emparejamientos")
-                return
-        
-            table.setRowCount(0)  
-            table.setRowCount(len(matchups))
-            table.setHorizontalHeaderLabels(["Deporte (Género)", "Atleta 1", "Atleta 2"])
-            
-            for row, matchup in enumerate(matchups):
-                table.setItem(row, 0, QTableWidgetItem(matchup['category']))
-                table.setItem(row, 1, QTableWidgetItem(matchup['athlete1']))
-                table.setItem(row, 2, QTableWidgetItem(matchup['athlete2']))
-            
-            table.resizeColumnsToContents()
-            
-            btn_close.clicked.connect(self.ui_matchups.close)
-            
-            self.ui_matchups.exec()
-            
-        except Exception as e:
-            print(f"Error in generar_emparejamientos: {str(e)}")
-            QMessageBox.critical(self.ui_Main, "Error", f"Ocurrió un error: {str(e)}")
 
     def carga_Interfaz_Usuario(self):
         #Configura el comboBox FiltrarPor
@@ -223,28 +135,6 @@ class MiApp(QObject):
             self.ui_Main.user_stackedWidged_secundary.setCurrentWidget(self.ui_Main.user_stacketWidget_page_deporte)
         
     def carga_Interfaz_Admin(self):
-        # Add matchup generation button
-        self.ui_Main.admin_btn_generarEmparejamientos = QPushButton("Generar Emparejamientos")
-        self.ui_Main.admin_btn_generarEmparejamientos.setStyleSheet("""
-            QPushButton{
-                font: 75 12pt "Arial";
-                color: black;
-                background-color:rgb(193, 193, 193);
-                border:1px solid black;
-            }
-            QPushButton:hover{
-                background-color:white;
-                font: 75 12pt "Arial";
-            }
-        """)
-        self.ui_Main.admin_btn_generarEmparejamientos.clicked.connect(self.generar_emparejamientos)
-        
-        btn_emparejamientos = self.ui_Main.findChild(QPushButton, "admin_btn_generarEmparejamientos")
-        if btn_emparejamientos:
-            btn_emparejamientos.clicked.connect(self.generar_emparejamientos)
-            print("Matchups button connected successfully")
-        else:
-            print("Error: Could not find admin_btn_generarEmparejamientos")
         #Configura el comboBox FiltrarPor
         self.ui_Main.admin_combobox_filtrarPor.addItems(["Pais","Atleta","Deporte"])
         # Conectar el evento de cambio de selección con la función que lo maneja
@@ -263,72 +153,6 @@ class MiApp(QObject):
         self.carga_Admin_PagePais()
         #Carga pagina Participantes
         self.carga_Admin_PageParticipante()
-        #Carga pagina Deportes 
-        self.carga_Admin_PageDeportes()
-    def carga_Admin_PageDeportes(self):
-        self.ui_Main.admin_stacketWidget_pageDeporte_lineEdit_paises.installEventFilter(self)
-        self.ui_Main.admin_stacketWidget_pageDeporte_btnGuardar.clicked.connect(self.guarda_deporte)
-        self.ui_Main.admin_stacketWidget_pageDeporte_btnEliminar.clicked.connect(self.elimina_deporte)
-        self.ui_Main.admin_stacketWidget_pageDeporte_btnBuscar.clicked.connect(lambda:self.busca_deporte("admin"))
-        tabla = getattr(self.ui_Main, f"admin_stacketWidget_pageDeporte_table")
-        tabla.cellClicked.connect(self.celda_clickeada)
-    def abrirVentanaPaises(self):
-        dialog = VentanaPaises(self.ui_Main)
-        if dialog.exec():
-            texto = dialog.obtenerTexto()
-            paises = [d.strip() for d in texto.split(",") if d.strip()]
-            self.ui_Main.admin_stacketWidget_pageDeporte_lineEdit_paises.setText(", ".join(paises))
-    def celda_clickeada(self, fila, columna):
-         if fila == 0 and columna == 2:
-            self.muestraLlaves()
-    def muestraLlaves(self):
-        # Cada elemento representa un partido (inicialmente vacío)
-        semis_izquierda = [None] * 15
-        semis_derecha = [None] * 15
-        # Las hojas son los equipos, que se podrían guardar por separado
-        equipos_izquierda = ["BRA", "ARG", "FRA", "GER", "ESP", "ENG", "POR", "NED"]
-        equipos_derecha = ["ITA", "URU", "CRO", "BEL", "JPN", "SEN", "KOR", "USA"]
-        for i in range(8):
-            semis_izquierda[14-i] = equipos_izquierda[i]
-        for i in range(15):
-            print(semis_izquierda[i])
-                
-        
-    
-    def guarda_deporte(self):
-        nombre_deporte= self.ui_Main.admin_stacketWidget_pageDeporte_lineEdit_deporte.text()
-        paises = self.ui_Main.admin_stacketWidget_pageDeporte_lineEdit_paises.text()
-        lista_paises = [d.strip() for d in paises.split(",") if d.strip()]
-        # Verificar si ya existe
-        if not self.objDeporte.deporteExiste(nombre_deporte):
-            self.objDeporte.guardar_deportes(nombre_deporte,lista_paises)
-            QMessageBox.information(None, "Éxito", "Deporte guardado correctamente.")
-        else:
-            QMessageBox.information(None, "Error", "El deporte ya existe.")
-    def elimina_deporte(self):
-        nombre_deporte = self.ui_Main.admin_stacketWidget_pageDeporte_lineEdit_deporte.text() 
-        if self.objDeporte.eliminarDeBase(nombre_deporte) == True:
-            QMessageBox.information(None, "Éxito", "Se eliminó el deporte con Exito")
-        else:
-            QMessageBox.information(None, "Error", "Este pais no participa en los olimpicos.")
-    def busca_deporte(self,modo):
-        lineEdit_deporte = getattr(self.ui_Main, f"{modo}_stacketWidget_pageDeporte_lineEdit_deporte")
-        tabla = getattr(self.ui_Main, f"{modo}_stacketWidget_pageDeporte_table")
-        nombre_deporte = lineEdit_deporte.text()
-        if not self.objDeporte.deporteExiste(nombre_deporte):
-            tabla.setRowCount(0)
-            return QMessageBox.information(None, "Error", "El deporte no existe")
-        infoDeporte = self.objDeporte.mostrar_deporte(nombre_deporte)
-        #Añade info a la tabla respectiva
-        row_position = tabla.rowCount()
-        if row_position<1:
-            tabla.insertRow(row_position)
-        for i in range(2):
-            item = QTableWidgetItem(str(infoDeporte[i]))
-            item.setTextAlignment(Qt.AlignLeft | Qt.AlignVCenter)
-            tabla.setItem(0, i, item)
-
-        
     def carga_Admin_PagePais(self):
         self.ui_Main.admin_stacketWidget_pagePais_lineEdit_deportes.installEventFilter(self)
         self.ui_Main.admin_stacketWidget_pagePais_btnGuardar.clicked.connect(self.guarda_pais)
@@ -340,7 +164,6 @@ class MiApp(QObject):
             texto = dialog.obtenerTexto()
             deportes = [d.strip() for d in texto.split(",") if d.strip()]
             self.ui_Main.admin_stacketWidget_pagePais_lineEdit_deportes.setText(", ".join(deportes))
-    
 
     def guarda_pais(self):
         nombre_pais = self.ui_Main.admin_stacketWidget_pagePais_lineEdit_pais.text()
@@ -433,10 +256,6 @@ class MiApp(QObject):
             if event.type() == QEvent.MouseButtonPress and event.button() == Qt.LeftButton:
                 self.abrirVentanaDeportes()
                 return True
-        if obj == self.ui_Main.admin_stacketWidget_pageDeporte_lineEdit_paises:
-            if event.type() == QEvent.MouseButtonPress and event.button() == Qt.LeftButton:
-                self.abrirVentanaPaises()
-                return True
         if obj in (self.frame_superior_main, self.frame_superior_inicioSesion):
             if event.type() == QEvent.MouseButtonPress and event.button() == Qt.LeftButton:
                 self.clickPosition = event.globalPosition()
@@ -496,25 +315,6 @@ class VentanaDeportes(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Ingresar deportes")
-        self.setMinimumSize(300, 200)
-
-        self.layout = QVBoxLayout()
-        self.text_edit = QTextEdit()
-        self.boton_aceptar = QPushButton("Aceptar")
-
-        self.layout.addWidget(self.text_edit)
-        self.layout.addWidget(self.boton_aceptar)
-        self.setLayout(self.layout)
-
-        self.boton_aceptar.clicked.connect(self.accept)
-
-    def obtenerTexto(self):
-        return self.text_edit.toPlainText()
-    
-class VentanaPaises(QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.setWindowTitle("Ingresar paises")
         self.setMinimumSize(300, 200)
 
         self.layout = QVBoxLayout()
