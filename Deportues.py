@@ -55,3 +55,12 @@ class Deportes:
             return info
         else:
             return "El deporte no existe en la base de datos."
+    
+    def buscar_deporte(self, nombre):
+        deportes = leerDeportes().items()
+        resultados = []
+        for deporte, info in deportes:
+            if nombre in deporte.upper():
+                datos = [deporte, ', '.join(info['Paises'])]
+                resultados.append(datos)
+        return resultados

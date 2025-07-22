@@ -67,6 +67,6 @@ class Paises:
         paises = leerPaises().items()
         resultados = []
         for pais, info in paises:
-            if nombre_pais in pais:
+            if nombre_pais in pais.upper():
                 resultados.append([pais, info['Numero de participantes'], ', '.join(info['Deportes'])])
         return resultados

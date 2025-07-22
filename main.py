@@ -314,19 +314,23 @@ class MiApp(QObject):
     def busca_deporte(self,modo):
         lineEdit_deporte = getattr(self.ui_Main, f"{modo}_stacketWidget_pageDeporte_lineEdit_deporte")
         tabla = getattr(self.ui_Main, f"{modo}_stacketWidget_pageDeporte_table")
+        #Conseguir el nombre de deporte insertado
         nombre_deporte = lineEdit_deporte.text()
-        if not self.objDeporte.deporteExiste(nombre_deporte):
+        #Vaciar la tabla
+        tabla.setRowCount(0)
+        #Buscar
+        busqueda = self.objDeporte.buscar_deporte(nombre_deporte.upper())
+        #Si no se encuentra
+        if not busqueda:
             tabla.setRowCount(0)
             return QMessageBox.information(None, "Error", "El deporte no existe")
-        infoDeporte = self.objDeporte.mostrar_deporte(nombre_deporte)
-        #Añade info a la tabla respectiva
-        row_position = tabla.rowCount()
-        if row_position<1:
-            tabla.insertRow(row_position)
-        for i in range(2):
-            item = QTableWidgetItem(str(infoDeporte[i]))
-            item.setTextAlignment(Qt.AlignLeft | Qt.AlignVCenter)
-            tabla.setItem(0, i, item)
+        #LLenar la tabla con los resultados
+        for i in range(len(busqueda)):
+            tabla.insertRow(i)
+            for j in range(2):
+                item = QTableWidgetItem(str(busqueda[i][j]))
+                item.setTextAlignment(Qt.AlignLeft | Qt.AlignVCenter)
+                tabla.setItem(i, j, item)
 
         
     def carga_Admin_PagePais(self):
@@ -407,14 +411,16 @@ class MiApp(QObject):
     def busca_participante(self,modo):
         lineEdit_nombre = getattr(self.ui_Main, f"{modo}_stacketWidget_pageParticipante_lineEdit_nombre")
         lineEdit_pais = getattr(self.ui_Main, f"{modo}_stacketWidget_pageParticipante_lineEdit_pais")
+        lineEdit_deporte = getattr(self.ui_Main, f"{modo}_stacketWidget_pageParticipante_lineEdit_deporte")
         tabla = getattr(self.ui_Main, f"{modo}_stacketWidget_pageParticipante_table")
         #Consigue el nombre y pais escritos
         nombre = lineEdit_nombre.text()
         pais = lineEdit_pais.text()
+        deporte = lineEdit_deporte.text()
         #Vaciar tabla
         tabla.setRowCount(0)
         #Buscar
-        busqueda = Participantes.buscar_participante(nombre,pais)
+        busqueda = Participantes.buscar_participante(nombre.upper(),pais.upper(),deporte.upper())
         #Si no se encuentra
         if not busqueda:
             tabla.setRowCount(0)
