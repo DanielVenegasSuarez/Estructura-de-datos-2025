@@ -46,11 +46,11 @@ class MiApp(QObject):
         
         super().__init__()
         loader = QUiLoader()
-        file = QFile("diseno_olimpicos.ui")
+        file = QFile("diseño_olimpicos.ui")
         file.open(QFile.ReadOnly)
         self.ui_Main = loader.load(file)
         file.close()
-        file2 = QFile("diseno_inicioSesion.ui")
+        file2 = QFile("diseño_inicioSesion.ui")
         file2.open(QFile.ReadOnly)
         self.ui_inicioSesion = loader.load(file2)
         file2.close()
