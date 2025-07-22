@@ -1,0 +1,22 @@
+{
+  "Tennis": {
+    "Nombre": "Tennis",
+    "Categorias": {
+      "Masculino": {
+        "genero": "Masculino",
+        "rango_peso_kg": null,
+        "rango_altura_cm": null
+      }
+    }
+  },
+  "Futbol": {
+    "Nombre": "Futbol",
+    "Categorias": {
+      "Masculino": {
+        "genero": "Masculino",
+        "rango_peso_kg": null,
+        "rango_altura_cm": null
+      }
+    }
+  }
+}
