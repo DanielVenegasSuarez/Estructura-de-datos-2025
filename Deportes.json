@@ -1,0 +1,22 @@
+{
+  "BASKETBOLL": {
+    "Paises": [
+      "USA",
+      "CHINA",
+      "INGLATERRA"
+    ]
+  },
+  "TENIS": {
+    "Paises": [
+      "PANAMA",
+      "CHILE"
+    ]
+  },
+  "FUTBOL": {
+    "Paises": [
+      "COLOMBIA",
+      "OCEANIA",
+      "CHINA"
+    ]
+  }
+}

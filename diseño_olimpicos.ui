@@ -479,6 +479,7 @@ background-color:white;
                       <property name="font">
                        <font>
                         <pointsize>12</pointsize>
+                        <weight>75</weight>
                         <bold>true</bold>
                        </font>
                       </property>
@@ -1268,7 +1269,7 @@ font: 75 12pt &quot;Arial&quot;;
                  <string notr="true">background-color: rgb(255, 255, 255);</string>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>2</number>
                 </property>
                 <widget class="QWidget" name="admin_stacketWidget_page_pais">
                  <layout class="QGridLayout" name="gridLayout_14">
@@ -2054,6 +2055,37 @@ font: 75 12pt &quot;Arial&quot;;
                    </widget>
                   </item>
                   <item row="0" column="2">
+                   <widget class="QLabel" name="admin_stacketWidget_label_pageDeporte_paises">
+                    <property name="font">
+                     <font>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Paises:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QLineEdit" name="admin_stacketWidget_pageDeporte_lineEdit_paises">
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font-size: 11pt;</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="readOnly">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
                    <spacer name="horizontalSpacer_21">
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
@@ -2066,14 +2098,14 @@ font: 75 12pt &quot;Arial&quot;;
                     </property>
                    </spacer>
                   </item>
-                  <item row="1" column="0" colspan="3">
+                  <item row="1" column="0" colspan="5">
                    <widget class="Line" name="line_10">
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="0" colspan="3">
+                  <item row="2" column="0" colspan="5">
                    <widget class="QTableWidget" name="admin_stacketWidget_pageDeporte_table">
                     <property name="styleSheet">
                      <string notr="true">QTableWidget{
@@ -2096,6 +2128,9 @@ QTableWidget::item{
 text-align: AlignCenter;
 }</string>
                     </property>
+                    <property name="editTriggers">
+                     <set>QAbstractItemView::NoEditTriggers</set>
+                    </property>
                     <column>
                      <property name="text">
                       <string>NOMBRE</string>
@@ -2103,7 +2138,7 @@ text-align: AlignCenter;
                     </column>
                     <column>
                      <property name="text">
-                      <string>CATEGORIAS</string>
+                      <string>PAISES</string>
                      </property>
                     </column>
                     <column>
@@ -2113,7 +2148,7 @@ text-align: AlignCenter;
                     </column>
                    </widget>
                   </item>
-                  <item row="3" column="0" colspan="3">
+                  <item row="3" column="0" colspan="5">
                    <widget class="QFrame" name="frame_11">
                     <property name="frameShape">
                      <enum>QFrame::StyledPanel</enum>
@@ -2129,7 +2164,89 @@ text-align: AlignCenter;
                        </property>
                        <property name="sizeHint" stdset="0">
                         <size>
-                         <width>241</width>
+                         <width>252</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="admin_stacketWidget_pageDeporte_btnGuardar">
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+font: 75 12pt &quot;Arial&quot;;
+color: black;
+background-color:rgb(193, 193, 193);
+border:1px solid black;
+}
+
+QPushButton:hover{
+background-color:white;
+font: 75 12pt &quot;Arial&quot;;
+}
+
+</string>
+                       </property>
+                       <property name="text">
+                        <string>Guardar</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_23">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>13</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="admin_stacketWidget_pageDeporte_btnEliminar">
+                       <property name="minimumSize">
+                        <size>
+                         <width>200</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+font: 75 12pt &quot;Arial&quot;;
+color: black;
+background-color:rgb(193, 193, 193);
+border:1px solid black;
+}
+
+QPushButton:hover{
+background-color:white;
+font: 75 12pt &quot;Arial&quot;;
+}
+
+</string>
+                       </property>
+                       <property name="text">
+                        <string>Eliminar</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_28">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>17</width>
                          <height>20</height>
                         </size>
                        </property>
@@ -2164,13 +2281,13 @@ font: 75 12pt &quot;Arial&quot;;
                       </widget>
                      </item>
                      <item>
-                      <spacer name="horizontalSpacer_23">
+                      <spacer name="horizontalSpacer_29">
                        <property name="orientation">
                         <enum>Qt::Horizontal</enum>
                        </property>
                        <property name="sizeHint" stdset="0">
                         <size>
-                         <width>241</width>
+                         <width>252</width>
                          <height>20</height>
                         </size>
                        </property>
@@ -2221,6 +2338,7 @@ font: 75 12pt &quot;Arial&quot;;
                       <property name="font">
                        <font>
                         <pointsize>12</pointsize>
+                        <weight>75</weight>
                         <bold>true</bold>
                        </font>
                       </property>

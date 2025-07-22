@@ -6,6 +6,7 @@ from PySide6.QtCore import *
 from PySide6.QtUiTools import *
 from Usuarios import *
 from Paises import Paises
+from Deportues import Deportes
 from Lista_Doblemente_Enlazada import *
 import Diccionario_Participantes as Participantes
 import Backend_Sesion as backend_sesion
@@ -55,10 +56,7 @@ class MiApp(QObject):
         self.ui_inicioSesion = loader.load(file2)
         file2.close()
         file3 = QFile("dialog_emparejamientos.ui")
-        file3 = QFile("dialog_emparejamientos.ui")
-        if not file3.open(QFile.ReadOnly):
-            print("Error: Could not open dialog_emparejamientos.ui")
-            return
+        file3.open(QFile.ReadOnly)
         self.ui_matchups = loader.load(file3, None)  # Add None as parent parameter
         file3.close()
         
@@ -69,8 +67,9 @@ class MiApp(QObject):
 
         # Crear una lista doblemente enlazada (en memoria)
         self.lista_paises = ListaDoblementeEnlazada()
-        #Configura paises y usuarios
+        #Configura paises y usuarios y deportes
         self.objPais = Paises.Paises()
+        self.objDeporte = Deportes()
         self.objUsuario = Usuario()
 
         # Configurar ventanas sin bordes
@@ -264,6 +263,72 @@ class MiApp(QObject):
         self.carga_Admin_PagePais()
         #Carga pagina Participantes
         self.carga_Admin_PageParticipante()
+        #Carga pagina Deportes 
+        self.carga_Admin_PageDeportes()
+    def carga_Admin_PageDeportes(self):
+        self.ui_Main.admin_stacketWidget_pageDeporte_lineEdit_paises.installEventFilter(self)
+        self.ui_Main.admin_stacketWidget_pageDeporte_btnGuardar.clicked.connect(self.guarda_deporte)
+        self.ui_Main.admin_stacketWidget_pageDeporte_btnEliminar.clicked.connect(self.elimina_deporte)
+        self.ui_Main.admin_stacketWidget_pageDeporte_btnBuscar.clicked.connect(lambda:self.busca_deporte("admin"))
+        tabla = getattr(self.ui_Main, f"admin_stacketWidget_pageDeporte_table")
+        tabla.cellClicked.connect(self.celda_clickeada)
+    def abrirVentanaPaises(self):
+        dialog = VentanaPaises(self.ui_Main)
+        if dialog.exec():
+            texto = dialog.obtenerTexto()
+            paises = [d.strip() for d in texto.split(",") if d.strip()]
+            self.ui_Main.admin_stacketWidget_pageDeporte_lineEdit_paises.setText(", ".join(paises))
+    def celda_clickeada(self, fila, columna):
+         if fila == 0 and columna == 2:
+            self.muestraLlaves()
+    def muestraLlaves(self):
+        # Cada elemento representa un partido (inicialmente vacío)
+        semis_izquierda = [None] * 15
+        semis_derecha = [None] * 15
+        # Las hojas son los equipos, que se podrían guardar por separado
+        equipos_izquierda = ["BRA", "ARG", "FRA", "GER", "ESP", "ENG", "POR", "NED"]
+        equipos_derecha = ["ITA", "URU", "CRO", "BEL", "JPN", "SEN", "KOR", "USA"]
+        for i in range(8):
+            semis_izquierda[14-i] = equipos_izquierda[i]
+        for i in range(15):
+            print(semis_izquierda[i])
+                
+        
+    
+    def guarda_deporte(self):
+        nombre_deporte= self.ui_Main.admin_stacketWidget_pageDeporte_lineEdit_deporte.text()
+        paises = self.ui_Main.admin_stacketWidget_pageDeporte_lineEdit_paises.text()
+        lista_paises = [d.strip() for d in paises.split(",") if d.strip()]
+        # Verificar si ya existe
+        if not self.objDeporte.deporteExiste(nombre_deporte):
+            self.objDeporte.guardar_deportes(nombre_deporte,lista_paises)
+            QMessageBox.information(None, "Éxito", "Deporte guardado correctamente.")
+        else:
+            QMessageBox.information(None, "Error", "El deporte ya existe.")
+    def elimina_deporte(self):
+        nombre_deporte = self.ui_Main.admin_stacketWidget_pageDeporte_lineEdit_deporte.text() 
+        if self.objDeporte.eliminarDeBase(nombre_deporte) == True:
+            QMessageBox.information(None, "Éxito", "Se eliminó el deporte con Exito")
+        else:
+            QMessageBox.information(None, "Error", "Este pais no participa en los olimpicos.")
+    def busca_deporte(self,modo):
+        lineEdit_deporte = getattr(self.ui_Main, f"{modo}_stacketWidget_pageDeporte_lineEdit_deporte")
+        tabla = getattr(self.ui_Main, f"{modo}_stacketWidget_pageDeporte_table")
+        nombre_deporte = lineEdit_deporte.text()
+        if not self.objDeporte.deporteExiste(nombre_deporte):
+            tabla.setRowCount(0)
+            return QMessageBox.information(None, "Error", "El deporte no existe")
+        infoDeporte = self.objDeporte.mostrar_deporte(nombre_deporte)
+        #Añade info a la tabla respectiva
+        row_position = tabla.rowCount()
+        if row_position<1:
+            tabla.insertRow(row_position)
+        for i in range(2):
+            item = QTableWidgetItem(str(infoDeporte[i]))
+            item.setTextAlignment(Qt.AlignLeft | Qt.AlignVCenter)
+            tabla.setItem(0, i, item)
+
+        
     def carga_Admin_PagePais(self):
         self.ui_Main.admin_stacketWidget_pagePais_lineEdit_deportes.installEventFilter(self)
         self.ui_Main.admin_stacketWidget_pagePais_btnGuardar.clicked.connect(self.guarda_pais)
@@ -275,6 +340,7 @@ class MiApp(QObject):
             texto = dialog.obtenerTexto()
             deportes = [d.strip() for d in texto.split(",") if d.strip()]
             self.ui_Main.admin_stacketWidget_pagePais_lineEdit_deportes.setText(", ".join(deportes))
+    
 
     def guarda_pais(self):
         nombre_pais = self.ui_Main.admin_stacketWidget_pagePais_lineEdit_pais.text()
@@ -367,6 +433,10 @@ class MiApp(QObject):
             if event.type() == QEvent.MouseButtonPress and event.button() == Qt.LeftButton:
                 self.abrirVentanaDeportes()
                 return True
+        if obj == self.ui_Main.admin_stacketWidget_pageDeporte_lineEdit_paises:
+            if event.type() == QEvent.MouseButtonPress and event.button() == Qt.LeftButton:
+                self.abrirVentanaPaises()
+                return True
         if obj in (self.frame_superior_main, self.frame_superior_inicioSesion):
             if event.type() == QEvent.MouseButtonPress and event.button() == Qt.LeftButton:
                 self.clickPosition = event.globalPosition()
@@ -426,6 +496,25 @@ class VentanaDeportes(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Ingresar deportes")
+        self.setMinimumSize(300, 200)
+
+        self.layout = QVBoxLayout()
+        self.text_edit = QTextEdit()
+        self.boton_aceptar = QPushButton("Aceptar")
+
+        self.layout.addWidget(self.text_edit)
+        self.layout.addWidget(self.boton_aceptar)
+        self.setLayout(self.layout)
+
+        self.boton_aceptar.clicked.connect(self.accept)
+
+    def obtenerTexto(self):
+        return self.text_edit.toPlainText()
+    
+class VentanaPaises(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("Ingresar paises")
         self.setMinimumSize(300, 200)
 
         self.layout = QVBoxLayout()
