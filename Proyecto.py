@@ -90,12 +90,16 @@ class Aplicacion:
         print("Ingrese los siguientes datos del participante:")
         nombre = input("Nombre: ")
         pais_participante = input("Pais: ")
-        if self.objPais.paisExiste(pais_participante) == False:
+        if self.objPais.paisExiste(pais_participante) == True:
+            self.objPais.actualizarParticipantes(nombre)
             deporte = input("Deporte que practica: ")  
-            edad = int(input("Edad del participante: "))
-            genero = input("Genero (Masculino o femenino): ")
-            registrarParticipantes(nombre, pais_participante, deporte, edad, genero)
-            print("/n¡Se agrego un participante con exito!")
+            if self.objPais.deporteExistePais(deporte) == True:
+                edad = int(input("Edad del participante: "))
+                genero = input("Genero (Masculino o femenino): ")
+                registrarParticipantes(nombre, pais_participante, deporte, edad, genero)
+                print("/n¡Se agrego un participante con exito!")
+            else:
+                print("Ese deporte no esta registrado para el pais seleccionado: ")
         elif pais_participante == "Cancelar": 
             return
         else:
