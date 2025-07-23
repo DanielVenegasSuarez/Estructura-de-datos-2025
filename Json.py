@@ -34,4 +34,5 @@ def leerParticiapantes():
 def escribirParticipantes(objeto):
     with open('Participantes.json','w', encoding="utf-8" ) as file:
         dump(objeto, file, ensure_ascii= False, indent=2)
+
  

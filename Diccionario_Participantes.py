@@ -74,3 +74,16 @@ def buscar_participante(nombre, pais = None, deporte = None):
         if resultados_pais: return resultados_pais
         if resultados_dep: return resultados_dep
         return resultados
+
+def eliminarParticipante(nombre, pais):
+    participantes = leerParticiapantes()
+    nombre = nombre.strip().lower()
+    pais = pais.strip().lower()
+    
+    for key in list(participantes.keys()):  
+        if (key.strip().lower() == nombre and 
+            participantes[key]["Pais"].strip().lower() == pais):
+            del participantes[key]
+            escribirParticipantes(participantes)
+            return True
+    return False

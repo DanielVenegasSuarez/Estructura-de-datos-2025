@@ -10,6 +10,8 @@ from Deportues import Deportes
 from Lista_Doblemente_Enlazada import *
 import Diccionario_Participantes as Participantes
 import Backend_Sesion as backend_sesion
+import Json as json
+
 
 class MatchupGenerator:
     @staticmethod
@@ -404,8 +406,10 @@ class MiApp(QObject):
     def elimina_participante(self):
         nombre = self.ui_Main.admin_stacketWidget_pageParticipante_lineEdit_nombre.text()
         pais = self.ui_Main.admin_stacketWidget_pageParticipante_lineEdit_pais.text()
-        if Participantes.eliminarDeBase(nombre,pais):
-            QMessageBox.information(None, "Éxito", "Se eliminó el participante con Exito")
+        if Participantes.eliminarParticipante(nombre, pais):
+            QMessageBox.information(None, "Éxito", "Se eliminó el participante con Éxito")
+            self.ui_Main.admin_stacketWidget_pageParticipante_lineEdit_nombre.clear()
+            self.ui_Main.admin_stacketWidget_pageParticipante_lineEdit_pais.clear()
         else:
             QMessageBox.information(None, "Error", "No se encontró al participante.")
     def busca_participante(self,modo):

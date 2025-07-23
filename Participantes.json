@@ -20,13 +20,6 @@
     "Edad": "24",
     "Genero": "Masculino"
   },
-  "laura ": {
-    "Nombre": "laura ",
-    "Pais": "francia",
-    "Deporte": "Tiro de arco",
-    "Edad": "23",
-    "Genero": "Masculino"
-  },
   "Daniela": {
     "Nombre": "Daniela",
     "Pais": "Mexico",
@@ -60,13 +53,6 @@
     "Pais": "Eslovaquia",
     "Deporte": "tenis",
     "Edad": "30",
-    "Genero": "Masculino"
-  },
-  "laura": {
-    "Nombre": "laura",
-    "Pais": "",
-    "Deporte": "",
-    "Edad": "",
     "Genero": "Masculino"
   },
   "Laura": {
