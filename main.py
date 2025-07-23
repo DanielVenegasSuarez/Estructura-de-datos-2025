@@ -11,6 +11,7 @@ from Lista_Doblemente_Enlazada import *
 import Diccionario_Participantes as Participantes
 import Backend_Sesion as backend_sesion
 import Json as json
+from Crear_ejecutable import *
 
 
 class MatchupGenerator:
@@ -49,15 +50,15 @@ class MiApp(QObject):
         
         super().__init__()
         loader = QUiLoader()
-        file = QFile("diseño_olimpicos.ui")
+        file = QFile(obtener_ruta("diseño_olimpicos.ui"))
         file.open(QFile.ReadOnly)
         self.ui_Main = loader.load(file)
         file.close()
-        file2 = QFile("diseño_inicioSesion.ui")
+        file2 = QFile(obtener_ruta("diseño_inicioSesion.ui"))
         file2.open(QFile.ReadOnly)
         self.ui_inicioSesion = loader.load(file2)
         file2.close()
-        file3 = QFile("dialog_emparejamientos.ui")
+        file3 = QFile(obtener_ruta("dialog_emparejamientos.ui"))
         file3.open(QFile.ReadOnly)
         self.ui_matchups = loader.load(file3, None)  # Add None as parent parameter
         file3.close()
