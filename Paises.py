@@ -30,14 +30,23 @@ class Paises:
         )
         return info
 
-    def guardar_paises(self,nom,numParticipantes,depor):
+    def guardar_paises(self,nom,depor):
         paises = leerPaises()
         paises[nom] = {
-            "Numero de participantes": numParticipantes,
+
+            "Numero de participantes": 0,
             "Deportes": depor
         }
         escribirPaises(paises)
     
+    def actualizarParticipantes(self,nom):
+        paises = leerPaises()
+        pais = paises[nom]
+        num = pais["Numero de Participantes"]
+        pais["Numero de Participantes"] = num + 1
+        paises[nom] = pais 
+        escribirPaises()
+
     def paisExiste(self,pais):
         paises = leerPaises()
         if pais in paises:
@@ -45,6 +54,14 @@ class Paises:
         else:
             return False
         
+    def deporteExistePais(self,nom,dep):
+        paises = leerPaises()
+        pais = paises[nom]
+        if dep in pais["Deportes"]:
+            return True
+        else: 
+            return False
+
     def eliminarDeBase(self,pais):
         paises = leerPaises()
         if pais in paises:
@@ -53,20 +70,3 @@ class Paises:
             return True
         else:
             return False
-        
-    def mostrar_pais(self, nombre_pais):
-        paises = leerPaises()
-        if nombre_pais in paises:
-            datos = paises[nombre_pais]
-            info = [nombre_pais,datos['Numero de participantes'],', '.join(datos['Deportes'])]
-            return info
-        else:
-            return "El país no existe en la base de datos."
-    
-    def buscar_pais(self, nombre_pais):
-        paises = leerPaises().items()
-        resultados = []
-        for pais, info in paises:
-            if nombre_pais in pais.upper():
-                resultados.append([pais, info['Numero de participantes'], ', '.join(info['Deportes'])])
-        return resultados
