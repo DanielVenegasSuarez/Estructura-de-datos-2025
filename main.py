@@ -62,6 +62,10 @@ class MiApp(QObject):
         file3.open(QFile.ReadOnly)
         self.ui_matchups = loader.load(file3, None)  # Add None as parent parameter
         file3.close()
+        file4 = QFile("diseño_llaves.ui")
+        file4.open(QFile.ReadOnly)
+        self.ui_llaves = loader.load(file4)  # Add None as parent parameter
+        file4.close()
         
         if not hasattr(self, 'ui_matchups'):
             print("Error: Failed to load matchups dialog UI")
@@ -80,6 +84,8 @@ class MiApp(QObject):
         self.ui_inicioSesion.setWindowOpacity(1)
         self.ui_Main.setWindowFlag(Qt.FramelessWindowHint)
         self.ui_Main.setWindowOpacity(1)
+        self.ui_llaves.setWindowFlag(Qt.FramelessWindowHint)
+        self.ui_llaves.setWindowOpacity(1)
 
         # SizeGrip para redimensionar (soolo para ventana principal)
         self.grip = QSizeGrip(self.ui_Main)
@@ -93,6 +99,9 @@ class MiApp(QObject):
         self.frame_superior_inicioSesion = self.ui_inicioSesion.findChild(QWidget, "frame_Superior")
         if self.frame_superior_inicioSesion:
             self.frame_superior_inicioSesion.installEventFilter(self)
+        self.frame_superior_llaves = self.ui_llaves.findChild(QWidget, "frame_Superior")
+        if self.frame_superior_llaves:
+            self.frame_superior_llaves.installEventFilter(self)
 
         #Control barra de titulos
         self.ui_Main.btn_Minimizar.clicked.connect(lambda: self.control_bt_minimizar(self.ui_Main))
@@ -104,6 +113,9 @@ class MiApp(QObject):
 
         self.ui_inicioSesion.btn_Minimizar.clicked.connect(lambda:self.control_bt_minimizar(self.ui_inicioSesion))
         self.ui_inicioSesion.btn_Cerrar.clicked.connect(lambda:self.close_Program(self.ui_inicioSesion))
+
+        self.ui_llaves.btn_Minimizar.clicked.connect(lambda:self.control_bt_minimizar(self.ui_llaves))
+        self.ui_llaves.btn_Cerrar.clicked.connect(lambda:self.close_Program(self.ui_llaves))
 
         self.carga_Inicio_Sesion()
         
@@ -269,6 +281,8 @@ class MiApp(QObject):
         #Carga pagina Deportes 
         self.carga_Admin_PageDeportes()
     def carga_Admin_PageDeportes(self):
+        #Conecta su boton
+        self.ui_llaves.btn_enfrentar.clicked.connect(lambda:self.enfrentarLlaves())
         self.ui_Main.admin_stacketWidget_pageDeporte_lineEdit_paises.installEventFilter(self)
         self.ui_Main.admin_stacketWidget_pageDeporte_btnGuardar.clicked.connect(self.guarda_deporte)
         self.ui_Main.admin_stacketWidget_pageDeporte_btnEliminar.clicked.connect(self.elimina_deporte)
@@ -282,19 +296,91 @@ class MiApp(QObject):
             paises = [d.strip() for d in texto.split(",") if d.strip()]
             self.ui_Main.admin_stacketWidget_pageDeporte_lineEdit_paises.setText(", ".join(paises))
     def celda_clickeada(self, fila, columna):
-         if fila == 0 and columna == 2:
-            self.muestraLlaves()
-    def muestraLlaves(self):
+         if columna == 2:
+            tabla = getattr(self.ui_Main, f"admin_stacketWidget_pageDeporte_table")
+            paises = tabla.item(fila, 1).text()
+            # Convertir a lista eliminando elementos vacíos
+            paises = [p for p in paises.strip(",").split(",") if p]
+            if len(paises) != 16:
+                return QMessageBox.information(None, "Error", "No hay 16 paises")
+            # Tomar los 3 primeros caracteres de cada país
+            participantes_llaves = [p[:3].upper() for p in paises]
+            self.ui_llaves.show()
+            self.muestraLlaves(participantes_llaves)
+    def muestraLlaves(self,participantes):
+        self.faseDeCompetencia = 1
+        self.ui_llaves.label_ganador.setText("")
         # Cada elemento representa un partido (inicialmente vacío)
-        semis_izquierda = [None] * 15
-        semis_derecha = [None] * 15
+        self.semis_izquierda = [None] * 15
+        self.semis_derecha = [None] * 15
         # Las hojas son los equipos, que se podrían guardar por separado
-        equipos_izquierda = ["BRA", "ARG", "FRA", "GER", "ESP", "ENG", "POR", "NED"]
-        equipos_derecha = ["ITA", "URU", "CRO", "BEL", "JPN", "SEN", "KOR", "USA"]
+        equipos_izquierda = participantes[:8]
+        equipos_derecha = participantes[8:]
         for i in range(8):
-            semis_izquierda[14-i] = equipos_izquierda[i]
+            self.semis_izquierda[14-i] = equipos_izquierda[i]
+            self.semis_derecha[14-i] = equipos_derecha[i]
         for i in range(15):
-            print(semis_izquierda[i])
+            label_izq = getattr(self.ui_llaves, f"label_izq_{15-i}")
+            label_izq.setText(self.semis_izquierda[14-i])
+            label_der = getattr(self.ui_llaves, f"label_der_{15-i}")
+            label_der.setText(self.semis_derecha[14-i])
+    def enfrentarLlaves(self):
+        if self.faseDeCompetencia==1:
+            for i in range(4):
+                #Para izquierda
+                valor_izq = random.choice([15-(2*i),14-(2*i)])
+                label_izq_anterior = getattr(self.ui_llaves, f"label_izq_{valor_izq}")
+                pasoACuartos_izq = label_izq_anterior.text()
+                valor_izq = valor_izq//2
+                label_izq = getattr(self.ui_llaves, f"label_izq_{valor_izq}")
+                label_izq.setText(pasoACuartos_izq)
+                #Para derecha
+                valor_der = random.choice([15-(2*i),14-(2*i)])
+                label_der_anterior = getattr(self.ui_llaves, f"label_der_{valor_der}")
+                pasoACuartos_der = label_der_anterior.text()
+                valor_der = valor_der//2
+                label_der = getattr(self.ui_llaves, f"label_der_{valor_der}")
+                label_der.setText(pasoACuartos_der)
+            self.faseDeCompetencia = 2
+        elif self.faseDeCompetencia==2:
+            for i in range(2):
+                #Para izquierda
+                valor_izq = random.choice([7-(2*i),6-(2*i)])
+                label_izq_anterior = getattr(self.ui_llaves, f"label_izq_{valor_izq}")
+                pasoASemis_izq = label_izq_anterior.text()
+                valor_izq = valor_izq//2
+                label_izq = getattr(self.ui_llaves, f"label_izq_{valor_izq}")
+                label_izq.setText(pasoASemis_izq)
+                #Para derecha
+                valor_der = random.choice([7-(2*i),6-(2*i)])
+                label_der_anterior = getattr(self.ui_llaves, f"label_der_{valor_der}")
+                pasoASemis_der = label_der_anterior.text()
+                valor_der = valor_der//2
+                label_der = getattr(self.ui_llaves, f"label_der_{valor_der}")
+                label_der.setText(pasoASemis_der)
+            self.faseDeCompetencia = 3
+        elif self.faseDeCompetencia==3:
+            #Para izquierda
+            valor_izq = random.choice([2,3])
+            label_izq_anterior = getattr(self.ui_llaves, f"label_izq_{valor_izq}")
+            pasoAFinal_izq = label_izq_anterior.text()
+            valor_izq = valor_izq//2
+            label_izq = getattr(self.ui_llaves, f"label_izq_{valor_izq}")
+            label_izq.setText(pasoAFinal_izq)
+            #Para derecha
+            valor_der = random.choice([2,3])
+            label_der_anterior = getattr(self.ui_llaves, f"label_der_{valor_der}")
+            pasoAFinal_der = label_der_anterior.text()
+            valor_der = valor_der//2
+            label_der = getattr(self.ui_llaves, f"label_der_{valor_der}")
+            label_der.setText(pasoAFinal_der)
+            self.faseDeCompetencia = 4
+        elif self.faseDeCompetencia==4:
+            ladoGanador = random.choice(["izq", "der"])
+            labelGanador = getattr(self.ui_llaves, f"label_{ladoGanador}_1")
+            paisGanador = labelGanador.text()
+            self.ui_llaves.label_ganador.setText(paisGanador)
+            self.faseDeCompetencia = 1
                 
         
     
@@ -456,13 +542,18 @@ class MiApp(QObject):
             if event.type() == QEvent.MouseButtonPress and event.button() == Qt.LeftButton:
                 self.abrirVentanaPaises()
                 return True
-        if obj in (self.frame_superior_main, self.frame_superior_inicioSesion):
+        if obj in (self.frame_superior_main, self.frame_superior_inicioSesion,self.frame_superior_llaves):
             if event.type() == QEvent.MouseButtonPress and event.button() == Qt.LeftButton:
                 self.clickPosition = event.globalPosition()
                 return True
             elif event.type() == QEvent.MouseMove and event.buttons() & Qt.LeftButton:
                 delta = event.globalPosition() - self.clickPosition
-                ventana = self.ui_Main if obj == self.frame_superior_main else self.ui_inicioSesion
+                if (obj == self.frame_superior_main):
+                    ventana = self.ui_Main
+                elif(obj == self.frame_superior_inicioSesion):
+                    ventana = self.ui_inicioSesion
+                else:
+                    ventana = self.ui_llaves
                 ventana.move(ventana.pos() + delta.toPoint())
                 self.clickPosition = event.globalPosition()
                 return True
